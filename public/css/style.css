@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    background-image: url('/images/Day.jpg');
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.weather-container {
+    margin: 50px 0;
+    padding: 30px 60px;
+    border: 2px solid white;
+    border-radius: 20px;
+    height: 80vh;
+    width: 54vh;
+    backdrop-filter: blur(5px);
+    box-shadow: 3px 3px 10px black;
+}
+
+.temp {
+    display: flex;
+}
+
+.weather h2 {
+    font-size: 30px;
+}
+
+.weather h1 {
+    font-size: 100px;
+    margin: -20px 0;
+}
+
+.weather p {
+    font-size: 20px;
+    position: relative;
+    top: -15px;
+}
+
+.cards {
+    display: flex;
+}
+
+.card {
+    height: 120px;
+    width: 120px;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 15px;
+    backdrop-filter: blur(15px);
+    box-shadow: 3px 3px 10px black;
+
+}
+
+.card p,
+h3 {
+    margin: 0px;
+}
+
+.card i {
+    font-size: 60px;
+    position: relative;
+    top: 20px;
+    left: 70px;
+}
+
+.right {
+    display: flex;
+    /* margin: 100px 0; */
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.search {
+    height: 40px;
+    width: 300px;
+    border-radius: 20px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    font-size: 15px;
+    text-align: center;
+
+}
+
+.button {
+    height: 50px;
+    width: 100px;
+    border-radius: 20px;
+    border: none;
+    background-color: blue;
+    color: white;
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+input::placeholder {
+    text-align: center;
+    font-size: 15px;
+    color: white;
+}
+
+.logo img {
+    height: 400px;
+    animation: upDown 3s ease-in-out infinite;
+}
+
+@keyframes upDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}

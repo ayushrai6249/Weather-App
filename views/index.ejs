@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="weather-container">
+            <div class="weather">
+                <% if(city){ %>
+                    <h2>
+                        <%= city %>
+                    </h2>
+                    <% } else { %>
+                        <h2></h2>
+                        <% } %>
+                            <div class="temp">
+                                <% if(temp){ %>
+                                    <h1>
+                                        <%= temp %>
+                                    </h1>
+                                    <% } else { %>
+                                        <h1></h1>
+                                        <% } %>
+                                            <p>°C</p>
+                            </div>
+                            <% if(description){ %>
+                                <p>
+                                    <%= description %>
+                                </p>
+                                <% } else { %>
+                                    <p></p>
+                                    <% } %>
+            </div>
+            <div class="cards">
+                <div class="box1">
+                    <div class="feelsLike card">
+                        <p>Feels Like</p>
+                        <% if(feelLike){ %>
+                            <h3>
+                                <%= feelLike %>
+                            </h3>
+                            <% } else { %>
+                                <h3></h3>
+                                <% } %>
+                                    <i class="fa-solid fa-temperature-high" style="color: #ecedee;"></i>
+                    </div>
+                    <div class="humidity card">
+                        <p>Humidity</p>
+                        <% if(humidity){ %>
+                            <h3>
+                                <%= humidity %>
+                            </h3>
+                            <% } else { %>
+                                <h3></h3>
+                                <% } %>
+                                    <i class="fa-solid fa-cloud-showers-water" style="color: #edf1f7;"></i>
+                    </div>
+                </div>
+                <div class="box2">
+                    <div class="pressure card">
+                        <p>Pressure</p>
+                        <% if(pressure){ %>
+                            <h3>
+                                <%= pressure %>
+                            </h3>
+                            <% } else { %>
+                                <h3></h3>
+                                <% } %>
+                        <i class="fa-solid fa-gauge" style="color: #ebeef4;"></i>
+                    </div>
+                    <div class="wind card">
+                        <p>Wind Speed</p>
+                        <% if(windSpeed){ %>
+                            <h3>
+                                <%= windSpeed %>
+                            </h3>
+                            <% } else { %>
+                                <h3></h3>
+                                <% } %>
+                        <i class="fa-solid fa-wind" style="color: #edeff3;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="find">
+                <form action="/" method="post">
+                    <input class="search" name="city" type="text" placeholder="Enter City" required>
+                    <input class="button" type="submit" value="Get Weather">
+                </form>
+            </div>
+            <div class="logo">
+                <img src="/images/Logo.png" alt="Logo">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
