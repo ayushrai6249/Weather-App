@@ -13,30 +13,23 @@
     <div class="container">
         <div class="weather-container">
             <div class="weather">
-                <% if(city){ %>
+                <% if (city) { %>
                     <h2>
                         <%= city %>
                     </h2>
-                    <% } else { %>
-                        <h2></h2>
-                        <% } %>
-                            <div class="temp">
-                                <% if(temp){ %>
-                                    <h1>
-                                        <%= temp %>
-                                    </h1>
-                                    <% } else { %>
-                                        <h1></h1>
-                                        <% } %>
-                                            <p>°C</p>
-                            </div>
-                            <% if(description){ %>
-                                <p>
-                                    <%= description %>
-                                </p>
-                                <% } else { %>
-                                    <p></p>
-                                    <% } %>
+                    <% } %>
+                        <div class="temp">
+                            <% if(temp){ %>
+                                <h1>
+                                    <%= temp %>
+                                </h1>
+                                <% } %>
+                        </div>
+                        <% if(description){ %>
+                            <p>
+                                <%= description %>
+                            </p>
+                            <% } %>
             </div>
             <div class="cards">
                 <div class="box1">
@@ -46,10 +39,8 @@
                             <h3>
                                 <%= feelLike %>
                             </h3>
-                            <% } else { %>
-                                <h3></h3>
-                                <% } %>
-                                    <i class="fa-solid fa-temperature-high" style="color: #ecedee;"></i>
+                            <% } %>
+                                <i class="fa-solid fa-temperature-high" style="color: #ecedee;"></i>
                     </div>
                     <div class="humidity card">
                         <p>Humidity</p>
@@ -57,10 +48,8 @@
                             <h3>
                                 <%= humidity %>
                             </h3>
-                            <% } else { %>
-                                <h3></h3>
-                                <% } %>
-                                    <i class="fa-solid fa-cloud-showers-water" style="color: #edf1f7;"></i>
+                            <% } %>
+                                <i class="fa-solid fa-cloud-showers-water" style="color: #edf1f7;"></i>
                     </div>
                 </div>
                 <div class="box2">
@@ -70,10 +59,8 @@
                             <h3>
                                 <%= pressure %>
                             </h3>
-                            <% } else { %>
-                                <h3></h3>
-                                <% } %>
-                        <i class="fa-solid fa-gauge" style="color: #ebeef4;"></i>
+                            <% } %>
+                                <i class="fa-solid fa-gauge" style="color: #ebeef4;"></i>
                     </div>
                     <div class="wind card">
                         <p>Wind Speed</p>
@@ -81,10 +68,8 @@
                             <h3>
                                 <%= windSpeed %>
                             </h3>
-                            <% } else { %>
-                                <h3></h3>
-                                <% } %>
-                        <i class="fa-solid fa-wind" style="color: #edeff3;"></i>
+                            <% } %>
+                                <i class="fa-solid fa-wind" style="color: #edeff3;"></i>
                     </div>
                 </div>
             </div>
@@ -101,6 +86,23 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll(".weather-container"), {
+            max: 4,
+            speed: 400,
+            scale: 1.01,
+            glare: true,
+            "max-glare": 0.3,
+        });
+        VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 4,
+            speed: 800,
+            scale: 1.03,
+            glare: true,
+            "max-glare": 0.3,
+        });
+    </script>
 </body>
 
 </html>
