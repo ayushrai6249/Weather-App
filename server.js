@@ -16,12 +16,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
 
 // When a user visits http://localhost:5000/, this function will be executed
-app.get('/', (req, res) =>{
+app.get('/', (req, res) => {
   const url = 'https://api.openweathermap.org/data/2.5/weather?q=varanasi&appid=' + apiKey + '&units=metric'
   https.get(url, (response) => { // The response callback handles the API response
     response.on('data', (data) => { // Listens for chunks of data from the API response
       const weatherData = JSON.parse(data); // Parse data in readable form
-      const temp = weatherData.main.temp; 
+      const temp = weatherData.main.temp;
       const feelLike = weatherData.main.feels_like;
       const description = weatherData.weather[0].description;
       const name = weatherData.name;
@@ -29,13 +29,13 @@ app.get('/', (req, res) =>{
       const pressure = weatherData.main.pressure;
       const windSpeed = weatherData.wind.speed;
       res.render('index', { temp: temp, feelLike: feelLike, description: description, city: name, humidity: humidity, windSpeed: windSpeed, pressure: pressure, error: null })
-      // passing the temperature (temp) ..., error (set to null) to the template.
+      // passing the temperature (temp) ..., error to the template.
     })
   });
 })
 
 // When a user submits a form to http://localhost:5000/, this function will be executed.
-app.post('/', (req, res) =>{
+app.post('/', (req, res) => {
   let city = req.body.city; // Extract city name when form in .ejs file is submitted
   const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey + '&units=metric'
   https.get(url, (response) => {
@@ -61,4 +61,11 @@ app.listen(5000, function () {
   console.log('http://localhost:5000/');
 })
 
+
+// Node.js application using the Express framework to serve a weather application. The app fetches weather data from the OpenWeatherMap API and renders it on a webpage using EJS as the templating engine.
+
+// Express Framework: Used for handling HTTP requests and responses.
+// OpenWeatherMap API: Used to fetch current weather data.
+// EJS(Embedded JavaScript): Templating engine to render HTML pages with dynamic data.
+// Body-Parser: Middleware to parse incoming request bodies.
 
